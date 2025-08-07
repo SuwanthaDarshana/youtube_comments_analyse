@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YouTube Video Category Prediction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #f0f4ff, #e0e7ff);
+        }
+        .card {
+            border-radius: 20px;
+        }
+        .table thead {
+            background-color: #0d6efd;
+            color: white;
+        }
+        .result-table {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-body p-4">
+                    <h2 class="text-center mb-4 text-primary">🔍 YouTube Video Category Predictor</h2>
+                    <form method="post">
+                        <div class="mb-3">
+                            <label for="youtube_url" class="form-label">YouTube Video URL</label>
+                            <input type="text" class="form-control" id="youtube_url" name="youtube_url" placeholder="Enter YouTube URL" required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Predict</button>
+                        </div>
+                    </form>
+
+                    {% if prediction and youtube_url %}
+                        <div class="mt-4 result-table">
+                            <h5 class="text-center mb-3 text-success">✅ Prediction Result</h5>
+                            <table class="table table-bordered text-center">
+                                <thead>
+                                    <tr>
+                                        <th>YouTube URL</th>
+                                        <th>Predicted Category</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><a href="{{ youtube_url }}" target="_blank">{{ youtube_url }}</a></td>
+                                        <td class="text-primary"><strong>{{ prediction }}</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    {% endif %}
+
+                    {% if prediction_history %}
+                        <hr>
+                        <h5 class="mt-4">📜 Prediction History</h5>
+                        <table class="table table-bordered table-striped mt-2">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>YouTube URL</th>
+                                    <th>Category</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for idx, item in enumerate(prediction_history) %}
+                                    <tr>
+                                        <td>{{ idx + 1 }}</td>
+                                        <td><a href="{{ item.url }}" target="_blank">{{ item.url }}</a></td>
+                                        <td>{{ item.category }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+                        <h5 class="mt-4">📊 Category Counts</h5>
+                        <ul class="list-group">
+                            {% for category, count in category_counts.items() %}
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    {{ category }}
+                                    <span class="badge bg-primary rounded-pill">{{ count }}</span>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
