@@ -1,4 +1,4 @@
-# 🧠 Sinhala YouTube Comment Classification using XLM-RoBERTa
+# Sinhala YouTube Comment Classification using XLM-RoBERTa
 
 This project classifies YouTube comments (Sinhala, English, and Singlish) into violence-related categories using multilingual NLP techniques. It features a fine-tuned XLM-RoBERTa model, advanced preprocessing pipeline, and classical model benchmarking.
 
@@ -33,16 +33,16 @@ project-root/
 
 ---
 
-## 📥 Installation
+##Installation
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/sinhala-youtube-comment-classifier.git
-cd sinhala-youtube-comment-classifier
+git clone https://github.com/SuwanthaDarshana/youtube_comments_analyse
+cd youtube_comments_analyse
 
 
 ### 2. Set up a virtual environment (optional but recommended)
-
+pip install virtualenv
 
 ### 3. Install Dependencies
 pip install -r requirements.txt
@@ -53,8 +53,6 @@ python app.py
 
 Open your browser and visit: http://localhost:5000
 Enter a YouTube URL → View predicted category.
-
-
 
 
 🔧 Technologies Used
@@ -71,8 +69,6 @@ Hugging Face Transformers
 Scikit-learn
 
 Preprocessing Tools:
-
-Sinlingua (Singlish → Sinhala transliteration)
 
 Googletrans (Translation to Sinhala)
 
@@ -96,10 +92,4 @@ Transformer Fine-Tuning: Model trained on real Sinhala YouTube comments for accu
 Confidence-Driven Output: Returns class with highest confidence after analyzing hundreds of comments
 
 📌 Future Improvements
-Add per-comment classification breakdown
-
-Integrate Streamlit for rich UI
-
-Add support for real-time streaming comment analysis
-
 Deploy on Hugging Face Spaces or Docker
