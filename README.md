@@ -15,7 +15,7 @@ This project classifies YouTube comments (Sinhala, English, and Singlish) into v
 
 ---
 
-<pre> ## 📂 Project Structure ``` project-root/ │ ├── notebooks/ # Saved XLM-RoBERTa model │ └── saved_model/ │ ├── config.json │ ├── pytorch_model.bin │ ├── tokenizer.json │ └── label_encoder.joblib │ ├── youtube_predictor.py # Core module: extraction, preprocessing, prediction ├── app.py # Flask app interface ├── requirements.txt # Required Python packages └── README.md # Project description ``` </pre>
+<pre> ## 📂 Project Structure ```text project-root/ │ ├── notebooks/ # Saved XLM-RoBERTa model │ └── saved_model/ │ ├── config.json │ ├── pytorch_model.bin │ ├── tokenizer.json │ └── label_encoder.joblib │ ├── youtube_predictor.py # Core module: extraction, preprocessing, prediction ├── app.py # Flask app interface ├── requirements.txt # Required Python packages └── README.md # Project description ``` </pre>
 
 ---
 
